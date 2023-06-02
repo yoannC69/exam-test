@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest';
+import { test, expect,afterEach } from 'vitest';
 import useNoteStore from '../store';
 
 describe('store zustand', () => {

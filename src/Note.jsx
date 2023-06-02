@@ -36,6 +36,7 @@ const Note = ({ id, title, note, comment, date, onDelete, modifyNote }) => {
     {isEditing ? (
       <div>
         <input
+          data-testid='title_modify'
           type="text"
           value={editedNote.title}
           onChange={(e) =>
@@ -43,6 +44,7 @@ const Note = ({ id, title, note, comment, date, onDelete, modifyNote }) => {
           }
         />
         <input
+          data-testid='note_modify'
           type="number"
           value={editedNote.note}
           onChange={(e) =>
@@ -50,6 +52,7 @@ const Note = ({ id, title, note, comment, date, onDelete, modifyNote }) => {
           }
         />
         <textarea
+          data-testid='comment_modify'
           value={editedNote.comment}
           onChange={(e) =>
             setEditedNote({ ...editedNote, comment: e.target.value })
@@ -61,7 +64,7 @@ const Note = ({ id, title, note, comment, date, onDelete, modifyNote }) => {
     ) : (
       <div>
         <h2>{title}</h2>
-        <p style={{ backgroundColor: note < 8 ? "red" : note < 10 ? "orange" : note < 13 ? "yellow" : "green" }}>Note: {note}</p>
+        <p data-testid='note-color' style={{ backgroundColor: note < 8 ? "red" : note < 10 ? "orange" : note < 13 ? "yellow" : "green" }}>Note: {note}</p>
         <p>Commentaire: {comment}</p>
         <p>Date de création: {date}</p>
         <button onClick={handleEditClick}>Modifier</button>
